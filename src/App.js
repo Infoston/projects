@@ -5,6 +5,8 @@ import InsertDeleteList from './InsertDeleteList';
 import ProductForm from './productform';
 import ProductList from './productlist';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import OrderConfirmation from './successpage';
+import './successpage'
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -47,8 +49,16 @@ function App() {
       <ProductList products={products} onEditProduct={editProduct} onDeleteProduct={deleteProduct} />
     </div>
     </div>
+    
   );
-
+  return (
+   
+    <div>
+     <OrderConfirmation/>
+     
+    </div>
+ 
+);
 }
 
 export default App;

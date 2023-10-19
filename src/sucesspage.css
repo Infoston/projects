@@ -1,0 +1,50 @@
+
+.confirmation-message {
+    text-align: center;
+    font-size: 24px;
+    color: blue;
+    margin-bottom: 20px;
+  }
+  
+  .shipping-address {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+  }
+  
+  
+  .shipping-method {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+  }
+  
+  .col-md-6 {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+  }
+  
+  .col-md-4{
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+  }
+  
+  
+  .payment-method {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+  }
+  
+  .submit-button {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
