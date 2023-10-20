@@ -42,6 +42,7 @@ function ProductForm({ productToEdit, onAddProduct, onUpdateProduct }) {
 
   return (
     <form onSubmit={handleSubmit}>
+       
       <div className="mb-3">
         <label htmlFor="name">Name:</label>
         <input type="text" className="form-control" id="name" name="name" value={product.name} onChange={handleChange}  />
@@ -52,10 +53,12 @@ function ProductForm({ productToEdit, onAddProduct, onUpdateProduct }) {
         <input type="text" className="form-control" id="sku" name="sku" value={product.sku} onChange={handleChange}  />
       </div>
 
-      <div className="form-group">
+       <div className="form-group">
         <label htmlFor="category">Category:</label>
         <input type="text" className="form-control" id="category" name="category" value={product.category} onChange={handleChange}  />
-      </div>
+      </div> 
+
+     
 
       <div className="form-group">
         <label htmlFor="summary">Summary:</label>
@@ -80,6 +83,7 @@ function ProductForm({ productToEdit, onAddProduct, onUpdateProduct }) {
 
       <button type="submit" className="btn btn-success">{productToEdit ? 'Update Product' : 'Add Product'}</button>
     </form>
+    
   );
 }
 

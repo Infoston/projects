@@ -1,6 +1,7 @@
 import React from 'react';
 
 function ProductList({ products, onEditProduct, onDeleteProduct }) {
+  
   return (
     <div className="row">
       {products.map((product) => (

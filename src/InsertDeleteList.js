@@ -1,7 +1,6 @@
 
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./InsertDeleteList.js";
 
 function CrudApp() {
   const [inputValue, setInputValue] = useState("");
@@ -43,7 +42,9 @@ function CrudApp() {
   };
 
   return (
+    
     <div className="crud-app">
+      
       <h1 className="text-center">CRUD Operation</h1>
       <div className="input-group mb-3">
         <input
@@ -72,6 +73,7 @@ function CrudApp() {
           </li>
         ))}
       </ul>
+      
     </div>
   );
 }
