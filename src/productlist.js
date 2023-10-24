@@ -1,10 +1,16 @@
+
+
+
 import React from 'react';
 
-function ProductList({ products, onEditProduct, onDeleteProduct }) {
-  
+function ProductList({ products, onEditProduct, onDeleteProduct, categoryFilter }) {
+  const filteredProducts = categoryFilter
+    ? products.filter(product => product.category === categoryFilter)
+    : products;
+
   return (
     <div className="row">
-      {products.map((product) => (
+      {filteredProducts.map((product) => (
         <div key={product.sku} className="col-lg-3 col-md-4 mb-4">
           <div className="card">
             <div className="card-body">

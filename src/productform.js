@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-
-function ProductForm({ productToEdit, onAddProduct, onUpdateProduct }) {
+function ProductForm({ productToEdit, onAddProduct, onUpdateProduct, onCancelEdit, categories }) {
   const [product, setProduct] = useState({
-    name: '',
     sku: '',
-    category: '',
+    name: '',
+    category: '', 
     summary: '',
     stock: 0,
     price: 0,
@@ -24,15 +23,17 @@ function ProductForm({ productToEdit, onAddProduct, onUpdateProduct }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (productToEdit) {
       onUpdateProduct(product);
     } else {
       onAddProduct(product);
     }
+
     setProduct({
-      name: '',
       sku: '',
-      category: '',
+      name: '',
+      category: '',   
       summary: '',
       stock: 0,
       price: 0,
@@ -41,49 +42,46 @@ function ProductForm({ productToEdit, onAddProduct, onUpdateProduct }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-       
-      <div className="mb-3">
-        <label htmlFor="name">Name:</label>
-        <input type="text" className="form-control" id="name" name="name" value={product.name} onChange={handleChange}  />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="sku">SKU:</label>
-        <input type="text" className="form-control" id="sku" name="sku" value={product.sku} onChange={handleChange}  />
-      </div>
-
-       <div className="form-group">
-        <label htmlFor="category">Category:</label>
-        <input type="text" className="form-control" id="category" name="category" value={product.category} onChange={handleChange}  />
-      </div> 
-
-     
-
-      <div className="form-group">
-        <label htmlFor="summary">Summary:</label>
-        <input type="text" className="form-control" id="summary" name="summary" value={product.summary} onChange={handleChange}  />
-      </div>
-
-
-      <div className="form-group">
-        <label htmlFor="stock">Stock:</label>
-        <input type="number" className="form-control" id="stock" name="stock" value={product.stock} onChange={handleChange} />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="price">Price:</label>
-        <input type="number" className="form-control" id="price" name="price" value={product.price} onChange={handleChange}  />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="description">Description:</label>
-        <textarea className="form-control" id="description" name="description" value={product.description} onChange={handleChange}  />
-      </div>
-
-      <button type="submit" className="btn btn-success">{productToEdit ? 'Update Product' : 'Add Product'}</button>
-    </form>
-    
+    <div>
+      <h2>{productToEdit ? 'Edit Product' : 'Add Product'}</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>SKU:</label>
+          <input type="text" name="sku" value={product.sku} onChange={handleChange} />
+        </div>
+        <div>
+          <label>Name:</label>
+          <input type="text" name="name" value={product.name} onChange={handleChange} />
+        </div>
+        <div>
+          <label>Category:</label>
+          <select name="category" value={product.category} onChange={handleChange}>
+            <option value="">Select a category</option>
+            {categories.map((category, index) => (
+              <option key={index} value={category}>{category}</option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label>Summary:</label>
+          <input type="text" name="summary" value={product.summary} onChange={handleChange} />
+        </div>
+        <div>
+          <label>Stock:</label>
+          <input type="number" name="stock" value={product.stock} onChange={handleChange} />
+        </div>
+        <div>
+          <label>Price:</label>
+          <input type="number" name="price" value={product.price} onChange={handleChange} />
+        </div>
+        <div>
+          <label>Description:</label>
+          <textarea name="description" value={product.description} onChange={handleChange} />
+        </div>
+        <button type="submit">{productToEdit ? 'Update' : 'Add'}</button>
+        {productToEdit && <button type="button" onClick={onCancelEdit}>Cancel</button>}
+      </form>
+    </div>
   );
 }
 
